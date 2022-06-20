@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import "./App.css";
 
-function App() {
+import { Canvas } from "@react-three/fiber";
+import Earth from "./comonents/earth/Earth";
+import Section from "./topSection/Section";
+import Finger from "./comonents/finger-print/Finger";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Canvas>
+        <Suspense fallback={null}>
+          {/* <Earth /> */}
+          <Finger />
+        </Suspense>
+      </Canvas>
+      <Section />
     </div>
   );
 }
-
-export default App;
